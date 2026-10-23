@@ -232,24 +232,46 @@
             margin: 10px 0;
             display: flex;
             justify-content: center;
+            align-items: center;
+            position: relative;
+            isolation: isolate;
+        }
+
+        /* Even, continuous halo behind the whole circular logo */
+        .profile::before {
+            content: "";
+            position: absolute;
+            width: 124px;
+            height: 124px;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle,
+                rgba(255, 190, 35, 0.36) 0%,
+                rgba(255, 170, 0, 0.24) 48%,
+                rgba(255, 150, 0, 0.12) 66%,
+                rgba(255, 150, 0, 0) 76%);
+            filter: blur(12px);
+            z-index: -1;
+            pointer-events: none;
         }
 
         .profile img {
-    width: 124px;
-    height: 124px;
-    flex: 0 0 124px;
-    display: block;
-    border-radius: 50%;
-    border: 0;
-    padding: 0;
-    object-fit: contain;
-    object-position: center;
-    transform: none;
-    box-shadow:
-        0 0 12px rgba(255, 190, 30, 0.75),
-        0 0 28px rgba(255, 170, 0, 0.5),
-        0 0 45px rgba(255, 170, 0, 0.28);
-}
+            width: 124px;
+            height: 124px;
+            flex: 0 0 124px;
+            display: block;
+            border-radius: 50%;
+            border: 0;
+            padding: 0;
+            object-fit: contain;
+            object-position: center;
+            transform: none;
+            box-shadow: none;
+            position: relative;
+            z-index: 1;
+        }
 
         .info-list {
             list-style: none;
