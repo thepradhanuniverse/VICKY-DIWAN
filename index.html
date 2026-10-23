@@ -226,7 +226,7 @@
 
         }
 
-        /* LOGO — preserve the ring already present in the JPEG; smooth, even glow */
+        /* LOGO — keep the full JPEG canvas so its built-in glow is not clipped */
         .profile {
             margin: 14px 0;
             display: flex;
@@ -235,40 +235,39 @@
             position: relative;
             isolation: isolate;
             overflow: visible;
-            min-height: 148px;
+            min-height: 168px;
         }
 
         .profile::before {
             content: "";
             position: absolute;
-            width: 132px;
-            height: 132px;
+            width: 150px;
+            height: 150px;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             border-radius: 50%;
             background: rgba(255, 174, 18, 0.42);
-            filter: blur(22px);
+            filter: blur(28px);
             z-index: -1;
             pointer-events: none;
         }
 
         .profile img {
-            width: 132px;
-            height: 132px;
-            flex: 0 0 132px;
+            width: 160px;
+            height: 160px;
+            flex: 0 0 160px;
             display: block;
             box-sizing: border-box;
-            border-radius: 50%;
+            /* Important: don't circle-crop the JPEG; that was clipping its bottom glow */
+            border-radius: 0;
             border: 0;
             padding: 0;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
             transform: none;
-            box-shadow:
-                0 0 8px 2px rgba(255, 205, 70, 0.72),
-                0 0 18px 7px rgba(255, 175, 20, 0.42),
-                0 0 32px 12px rgba(255, 150, 0, 0.22);
+            background: transparent;
+            box-shadow: none;
             position: relative;
             z-index: 1;
         }
