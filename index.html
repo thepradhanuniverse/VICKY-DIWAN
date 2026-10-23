@@ -226,33 +226,29 @@
 
         }
 
-        /* LOGO */
-
+        /* LOGO — centered circular crop with continuous golden glow */
         .profile {
-            margin: 10px 0;
+            margin: 14px 0;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
             isolation: isolate;
+            overflow: visible;
+            min-height: 140px;
         }
 
-        /* Even, continuous halo behind the whole circular logo */
         .profile::before {
             content: "";
             position: absolute;
-            width: 124px;
-            height: 124px;
-            border-radius: 50%;
+            width: 136px;
+            height: 136px;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background: radial-gradient(circle,
-                rgba(255, 190, 35, 0.36) 0%,
-                rgba(255, 170, 0, 0.24) 48%,
-                rgba(255, 150, 0, 0.12) 66%,
-                rgba(255, 150, 0, 0) 76%);
-            filter: blur(12px);
+            border-radius: 50%;
+            background: rgba(255, 174, 18, 0.32);
+            filter: blur(18px);
             z-index: -1;
             pointer-events: none;
         }
@@ -262,13 +258,18 @@
             height: 124px;
             flex: 0 0 124px;
             display: block;
+            box-sizing: border-box;
             border-radius: 50%;
-            border: 0;
+            border: 3px solid #fff;
             padding: 0;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
-            transform: none;
-            box-shadow: none;
+            transform: scale(1.02);
+            box-shadow:
+                0 0 0 2px rgba(255, 190, 35, 0.9),
+                0 0 12px 4px rgba(255, 190, 35, 0.75),
+                0 0 26px 9px rgba(255, 170, 0, 0.42),
+                0 0 42px 14px rgba(255, 150, 0, 0.20);
             position: relative;
             z-index: 1;
         }
@@ -356,16 +357,17 @@
             justify-content: space-between;
             gap: 12px;
             width: 100%;
-            margin-top: 12px;
+            min-height: 72px;
+            margin-top: 14px;
             padding: 14px 16px;
-            border: 2px solid #e9b949;
-            border-radius: 18px;
+            border: 2px solid #f3c653;
+            border-radius: 16px;
             color: #ffe6a0;
-            background: linear-gradient(135deg, #30230b, #111111, #3a290b);
+            background: linear-gradient(135deg, #49330a 0%, #17130b 48%, #5a3b06 100%);
             text-decoration: none;
             font-size: 13px;
             line-height: 1.4;
-            box-shadow: 0 0 14px rgba(255, 190, 45, 0.28), inset 0 0 10px rgba(255, 205, 70, 0.08);
+            box-shadow: 0 0 16px rgba(255, 190, 45, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 0 12px rgba(255, 205, 70, 0.10);
             transition: transform .2s ease, box-shadow .2s ease;
             cursor: pointer;
         }
