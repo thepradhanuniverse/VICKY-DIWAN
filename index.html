@@ -335,63 +335,6 @@
             line-height: 1.35;
         }
 
-        /* WHATSAPP BUTTON */
-
-        .whatsapp-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 30px;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 700;
-
-            background: linear-gradient(
-                -45deg,
-                #075e54,
-                #128c7e,
-                #075e54,
-                #128c7e
-            );
-
-            background-size: 300% 300%;
-
-            animation:
-                flow 3s linear infinite;
-
-            transition:
-                transform .22s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.03);
-        }
-
-        @keyframes flow {
-
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-
-        }
-
-        .whatsapp-btn i {
-            color: #ffffff;
-            font-size: 22px;
-        }
-
         /* AD MANAGED BY TELEGRAM */
         .ad-manager {
             display: flex;
@@ -553,18 +496,6 @@
 
         </ul>
 
-        <!-- WHATSAPP BUTTON -->
-        <a
-            href="https://wa.me/message/JO3NOIQOAJOEF1"
-            class="whatsapp-btn"
-            id="whatsappButton">
-
-            WHATSAPP CHAT
-
-            <i class="fa fa-whatsapp"></i>
-
-        </a>
-
         <!-- AD MANAGED BY -->
         <a href="https://telegram.me/starkivemedia18"
            class="ad-manager"
@@ -639,24 +570,7 @@
 
         }());
 
-
-        /* WHATSAPP CLICK = CUSTOM EVENT */
-
-        (function () {
-
-            var whatsappButton =
-                document.getElementById("whatsappButton");
-
-            whatsappButton.addEventListener("click", function () {
-
-                if (typeof fbq === "function") fbq("trackCustom", "WhatsAppClick");
-
-            });
-
-        }());
-
-
-        /* AD MANAGER CLICK TRACKING */
+/* AD MANAGER CLICK TRACKING */
         (function () {
             var adManagerButton = document.getElementById("adManagerButton");
             adManagerButton.addEventListener("click", function () {
